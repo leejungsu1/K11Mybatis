@@ -30,7 +30,7 @@
 	 	<beans:property name="username" value="kosmo"/>
 	 	<beans:property name="password" value="1234"/>
 	 </beans:bean>
-	<!-- Mybatis 빈 생성 -->
+	<!-- Mybatis 빈 생성 --> 
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"/>
 		<beans:property name="mapperLocations" value="classpath:mybatis/mapper/*.xml"/>

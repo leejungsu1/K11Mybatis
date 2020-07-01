@@ -32,7 +32,7 @@ function writeValidate(f)
 <div class="container">
 	<h3>방명록(글쓰기) - 
 		<small>Mybatis로 제작한 방명록입니다.</small></h3>
-	
+	<!-- JSTL의 url태크는 컨텍스트루트 경로를 자동으로 포함시켜 준다. -->
 	<form name="writeFrm" method="post" 
 		onsubmit="return writeValidate(this);"
 		action="<c:url value="/mybatis/writeAction.do" />" >
