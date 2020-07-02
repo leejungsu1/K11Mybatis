@@ -81,20 +81,6 @@ public class MybatisController {
 		model.addAttribute("lists", lists);
 		return "07Mybatis/list";
 	}
-	//방명록 글쓰기 폼
-	@RequestMapping("/mybatis/write.do")
-	public String write(Model model, HttpServletRequest req, HttpSession session) {
-		//글쓰기 페이지로 진입시 세션영역에 데이터가 없다면 로그인페이지로 이동
-		if(session.getAttribute("siteUserInfo")==null) {
-			/*
-			로그인에 성공할 경우 글쓰기 페이지로 이동하기 위해
-			돌아갈 경로를 아래와 같이 저장함.
-			 */
-			model.addAttribute("backUrl", "07Mybatis/write");
-			return "redirect:login.do";
-		}
-		return "07Mybatis/write";
-	}
 	//로그인
 	@RequestMapping("/mybatis/login.do")
 	public String login(Model model) {
@@ -127,6 +113,20 @@ public class MybatisController {
 			mv.setViewName(backUrl);
 		}
 		return mv;
+	}
+	//방명록 글쓰기 폼
+	@RequestMapping("/mybatis/write.do")
+	public String write(Model model, HttpServletRequest req, HttpSession session) {
+		//글쓰기 페이지로 진입시 세션영역에 데이터가 없다면 로그인페이지로 이동
+		if(session.getAttribute("siteUserInfo")==null) {
+			/*
+			로그인에 성공할 경우 글쓰기 페이지로 이동하기 위해
+			돌아갈 경로를 아래와 같이 저장함.
+			 */
+			model.addAttribute("backUrl", "07Mybatis/write");
+			return "redirect:login.do";
+		}
+		return "07Mybatis/write";
 	}
 	//글쓰기 처리
 	@RequestMapping(value = "/mybatis/writeAction.do", method = RequestMethod.POST)
